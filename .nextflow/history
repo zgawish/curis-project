@@ -1,0 +1,6 @@
+2021-08-01 11:26:55	3.7s	nauseous_minsky	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	159ede41-23b1-42b1-989f-2265e2b8b91b	nextflow run server.nf
+2021-08-01 11:29:12	3.3s	shrivelled_lorenz	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	88167743-2962-486b-9db6-c8172b20588b	nextflow run server.nf
+2021-08-01 11:31:00	3.7s	dreamy_galileo	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	8186eb74-2ae7-45b1-aa11-8ea84d032698	nextflow run server.nf -w .
+2021-08-01 11:33:03	4.2s	furious_wright	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	e48b4af4-c796-4e4f-8934-6d2a628d2311	nextflow run server.nf
+2021-08-01 11:36:46	27.7s	adoring_mirzakhani	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	153346b1-20bd-4b9e-a386-ee34ca71bc55	nextflow run server.nf
+2021-08-01 11:38:09	20s	trusting_ardinghelli	ERR	d6dc2344f05b005fa0449a5b1e34dbfd	6b957b04-d2fc-4bae-8813-8fdfbdeb96a5	nextflow run server.nf

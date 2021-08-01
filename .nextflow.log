@@ -1,0 +1,77 @@
+Aug-01 11:38:08.208 [main] DEBUG nextflow.cli.Launcher - $> nextflow run server.nf
+Aug-01 11:38:08.514 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.3
+Aug-01 11:38:08.566 [main] INFO  nextflow.cli.CmdRun - Launching `server.nf` [trusting_ardinghelli] - revision: d6dc2344f0
+Aug-01 11:38:08.798 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/home/ziygawish/.nextflow/plugins
+Aug-01 11:38:08.803 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-01 11:38:08.808 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Aug-01 11:38:08.824 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-01 11:38:08.826 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-01 11:38:08.833 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-01 11:38:08.865 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-01 11:38:08.999 [main] DEBUG nextflow.Session - Session uuid: 6b957b04-d2fc-4bae-8813-8fdfbdeb96a5
+Aug-01 11:38:08.999 [main] DEBUG nextflow.Session - Run name: trusting_ardinghelli
+Aug-01 11:38:09.004 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-01 11:38:09.057 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.3 build 5560
+  Created: 21-07-2021 15:09 UTC 
+  System: Linux 4.15.0-1098-gcp
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10
+  Encoding: UTF-8 (UTF-8)
+  Process: 11756@elasticluster-test-instance [10.128.0.3]
+  CPUs: 2 - Mem: 3.8 GB (2.4 GB) - Swap: 0 (0)
+Aug-01 11:38:09.121 [main] DEBUG nextflow.Session - Work-dir: /home/ziygawish/curis-project/work [ext2/ext3]
+Aug-01 11:38:09.122 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ziygawish/curis-project/bin
+Aug-01 11:38:09.144 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-01 11:38:09.172 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-01 11:38:09.650 [main] DEBUG nextflow.Session - Session start invoked
+Aug-01 11:38:10.925 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-01 11:38:10.966 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: sendCommands, startServer, setup
+Aug-01 11:38:11.073 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:38:11.073 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:38:11.083 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-01 11:38:11.093 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=3.8 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Aug-01 11:38:11.370 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:38:11.371 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:38:11.386 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:38:11.386 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:38:11.411 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-01 11:38:11.412 [main] DEBUG nextflow.Session - Session await
+Aug-01 11:38:11.675 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:38:11.682 [Task submitter] INFO  nextflow.Session - [16/fee3fc] Submitted process > setup
+Aug-01 11:38:11.695 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:38:11.701 [Task submitter] INFO  nextflow.Session - [63/a0a5f0] Submitted process > startServer
+Aug-01 11:38:11.979 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: startServer; status: COMPLETED; exit: 0; error: -; workDir: /home/ziygawish/curis-project/work/63/a0a5f0ec506cb2123655464ae23b5c]
+Aug-01 11:38:11.983 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:38:11.987 [Task submitter] INFO  nextflow.Session - [cf/57ab16] Submitted process > sendCommands
+Aug-01 11:38:28.744 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: sendCommands; status: COMPLETED; exit: 255; error: -; workDir: /home/ziygawish/curis-project/work/cf/57ab16c1eb906d440e24107387b637]
+Aug-01 11:38:28.790 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'sendCommands'
+
+Caused by:
+  Process `sendCommands` terminated with an error exit status (255)
+
+Command executed:
+
+  gcloud compute ssh --zone "us-central1-a" "gridengine-on-gce-compute001"  --project "spry-notch-318823" -- 'cd ~/curis-project/ && ./nextflow run client.nf'
+
+Command exit status:
+  255
+
+Command output:
+  (empty)
+
+Command error:
+  Pseudo-terminal will not be allocated because stdin is not a terminal.
+  Permission denied (publickey,hostbased).
+  ERROR: (gcloud.compute.ssh) [/usr/bin/ssh] exited with return code [255].
+
+Work dir:
+  /home/ziygawish/curis-project/work/cf/57ab16c1eb906d440e24107387b637
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Aug-01 11:38:28.800 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `sendCommands` terminated with an error exit status (255)
+Aug-01 11:38:28.834 [main] DEBUG nextflow.Session - Session await > all process finished
+Aug-01 11:38:28.834 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-01 11:38:28.851 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (1)
+Aug-01 11:38:28.866 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=1; retriesCount=0; abortedCount=0; succeedDuration=225ms; failedDuration=16.7s; cachedDuration=0ms;loadCpus=1; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Aug-01 11:38:29.041 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Aug-01 11:38:29.060 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
