@@ -29,6 +29,6 @@ process convertToUpper {
 
 process connectBack {
     """
-    python3 ./../communication/client.py
+    python3 ~/curis-project/communication/client.py
     """
 }
