@@ -1,0 +1,4 @@
+  File "/home/ziygawish/curis-project/setup.py", line 73
+    if __name__ == "__main__":
+     ^
+IndentationError: expected an indented block

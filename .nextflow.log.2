@@ -1,0 +1,48 @@
+Aug-01 11:56:10.159 [main] DEBUG nextflow.cli.Launcher - $> nextflow run server.nf
+Aug-01 11:56:11.077 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.3
+Aug-01 11:56:11.121 [main] INFO  nextflow.cli.CmdRun - Launching `server.nf` [nostalgic_fermat] - revision: fe0a296f19
+Aug-01 11:56:12.119 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/home/ziygawish/.nextflow/plugins
+Aug-01 11:56:12.121 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-01 11:56:12.125 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Aug-01 11:56:12.155 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-01 11:56:12.157 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-01 11:56:12.170 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-01 11:56:12.678 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-01 11:56:13.167 [main] DEBUG nextflow.Session - Session uuid: 5758b832-d8e3-47c7-bf90-e4043f550be9
+Aug-01 11:56:13.167 [main] DEBUG nextflow.Session - Run name: nostalgic_fermat
+Aug-01 11:56:13.172 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-01 11:56:13.369 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.3 build 5560
+  Created: 21-07-2021 15:09 UTC 
+  System: Linux 4.15.0-1098-gcp
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10
+  Encoding: UTF-8 (UTF-8)
+  Process: 12520@elasticluster-test-instance [10.128.0.3]
+  CPUs: 2 - Mem: 3.8 GB (2.4 GB) - Swap: 0 (0)
+Aug-01 11:56:13.567 [main] DEBUG nextflow.Session - Work-dir: /home/ziygawish/curis-project/work [ext2/ext3]
+Aug-01 11:56:13.567 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ziygawish/curis-project/bin
+Aug-01 11:56:13.611 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-01 11:56:13.661 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-01 11:56:15.876 [main] DEBUG nextflow.Session - Session start invoked
+Aug-01 11:56:19.852 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-01 11:56:19.901 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: sendCommands, setup
+Aug-01 11:56:20.589 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:56:20.589 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:56:20.609 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-01 11:56:20.633 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=3.8 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Aug-01 11:56:21.654 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:56:21.655 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:56:21.667 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-01 11:56:21.668 [main] DEBUG nextflow.Session - Session await
+Aug-01 11:56:22.838 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:56:22.862 [Task submitter] INFO  nextflow.Session - [ac/10437f] Submitted process > sendCommands
+Aug-01 11:56:22.889 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:56:22.897 [Task submitter] INFO  nextflow.Session - [98/271767] Submitted process > setup
+Aug-01 11:57:02.374 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Aug-01 11:57:02.385 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: sendCommands; status: COMPLETED; exit: 130; error: -; workDir: /home/ziygawish/curis-project/work/ac/10437ff51ebc3efc0707f61ee41929]
+Aug-01 11:57:02.570 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: setup; status: COMPLETED; exit: 130; error: -; workDir: /home/ziygawish/curis-project/work/98/271767c7ffc8cb4b7419cdc209c6bd]
+Aug-01 11:57:02.599 [main] DEBUG nextflow.Session - Session await > all process finished
+Aug-01 11:57:02.607 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-01 11:57:02.654 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=2; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=1m 19s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Aug-01 11:57:02.904 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Aug-01 11:57:02.926 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

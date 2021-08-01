@@ -66,10 +66,12 @@ def set_up_clients():
         request = service.instances().list_next(previous_request=request, previous_response=response)
 
 def main():
-    start_instances()
-    set_up_server()
-    set_up_clients()
+#    start_instances()
+#    set_up_server()
+#    set_up_clients()
+    print("ALL DONE")
 
+    
 if __name__ == "__main__":
     main()
 

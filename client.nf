@@ -22,7 +22,7 @@ process convertToUpper {
     stdout result
 
     """
-    cat $x | tr '[a-z]' '[A-Z]' \
+    cat $x | tr '[a-z]' '[A-Z]'
     sleep 10
     """
 }

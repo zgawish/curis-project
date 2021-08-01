@@ -1,0 +1,73 @@
+Aug-01 11:57:34.332 [main] DEBUG nextflow.cli.Launcher - $> nextflow run server.nf
+Aug-01 11:57:35.629 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.3
+Aug-01 11:57:35.673 [main] INFO  nextflow.cli.CmdRun - Launching `server.nf` [shrivelled_mestorf] - revision: fe0a296f19
+Aug-01 11:57:36.117 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/home/ziygawish/.nextflow/plugins
+Aug-01 11:57:36.119 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-01 11:57:36.133 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Aug-01 11:57:36.155 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-01 11:57:36.163 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-01 11:57:36.307 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-01 11:57:36.333 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-01 11:57:36.595 [main] DEBUG nextflow.Session - Session uuid: 506201e5-41fb-42ee-a733-c792335f279e
+Aug-01 11:57:36.595 [main] DEBUG nextflow.Session - Run name: shrivelled_mestorf
+Aug-01 11:57:36.609 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-01 11:57:36.821 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.3 build 5560
+  Created: 21-07-2021 15:09 UTC 
+  System: Linux 4.15.0-1098-gcp
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10
+  Encoding: UTF-8 (UTF-8)
+  Process: 12680@elasticluster-test-instance [10.128.0.3]
+  CPUs: 2 - Mem: 3.8 GB (2.3 GB) - Swap: 0 (0)
+Aug-01 11:57:36.891 [main] DEBUG nextflow.Session - Work-dir: /home/ziygawish/curis-project/work [ext2/ext3]
+Aug-01 11:57:36.891 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ziygawish/curis-project/bin
+Aug-01 11:57:37.058 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-01 11:57:37.089 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-01 11:57:38.626 [main] DEBUG nextflow.Session - Session start invoked
+Aug-01 11:57:42.678 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-01 11:57:42.895 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: sendCommands, setup
+Aug-01 11:57:43.371 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:57:43.371 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:57:43.390 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-01 11:57:43.424 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=3.8 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Aug-01 11:57:44.872 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:57:44.872 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:57:44.897 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-01 11:57:44.897 [main] DEBUG nextflow.Session - Session await
+Aug-01 11:57:45.879 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:57:45.887 [Task submitter] INFO  nextflow.Session - [46/20ded6] Submitted process > setup
+Aug-01 11:57:45.923 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:57:45.925 [Task submitter] INFO  nextflow.Session - [cd/893bfe] Submitted process > sendCommands
+Aug-01 11:57:46.885 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: setup; status: COMPLETED; exit: 1; error: -; workDir: /home/ziygawish/curis-project/work/46/20ded6ce0b1eeb8d313125fd7dcc57]
+Aug-01 11:57:47.108 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'setup'
+
+Caused by:
+  Process `setup` terminated with an error exit status (1)
+
+Command executed:
+
+  python3 ~/curis-project/setup.py
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+    File "/home/ziygawish/curis-project/setup.py", line 73
+      if __name__ == "__main__":
+       ^
+  IndentationError: expected an indented block
+
+Work dir:
+  /home/ziygawish/curis-project/work/46/20ded6ce0b1eeb8d313125fd7dcc57
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Aug-01 11:57:47.150 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `setup` terminated with an error exit status (1)
+Aug-01 11:57:47.329 [main] DEBUG nextflow.Session - Session await > all process finished
+Aug-01 11:57:47.329 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-01 11:57:47.360 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (1)
+Aug-01 11:57:47.390 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=1; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=563ms; cachedDuration=0ms;loadCpus=1; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Aug-01 11:57:47.644 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Aug-01 11:57:47.661 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
