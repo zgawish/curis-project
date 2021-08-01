@@ -1,0 +1,6 @@
+# Set up google client api
+
+pip install virtualenv
+virtualenv <your-env> # gce_api
+source <your-env>/bin/activate
+<your-env>/bin/pip install google-api-python-client
