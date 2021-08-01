@@ -38,11 +38,11 @@ def start_instances():
         return False
 
 """
-gcloud compute ssh --zone "us-central1-a" "<name>"  --project "spry-notch-318823" -- 'cd ~/CURIS-workplace/websocket-test/ && python3 client.py'
+gcloud compute ssh --zone "us-central1-a" "<name>"  --project "spry-notch-318823" -- '~/curis-project/communication/ && python3 client.py'
 """
 
 def set_up_server():
-    cmd = "gcloud compute ssh --zone 'us-central1-a' 'elasticluster-test-instance'  --project 'spry-notch-318823' -- 'cd ~/CURIS-workplace/websocket-test/ && python3 serverclass.py'"
+    cmd = "gcloud compute ssh --zone 'us-central1-a' 'elasticluster-test-instance'  --project 'spry-notch-318823' -- 'cd ~/curis-project/communication/ && python3 serverclass.py'"
     stream = os.popen(cmd)
     output = stream.read()
     print(str(output))
@@ -50,7 +50,7 @@ def set_up_server():
 
 def set_up_client(name):
     if name == 'gridengine-on-gce-compute001': # just for now because repos are not installed
-        cmd = "gcloud compute ssh --zone 'us-central1-a' '"  + name + "'  --project 'spry-notch-318823' -- 'cd ~/CURIS-workplace/websocket-test/ && python3 client.py'"
+        cmd = "gcloud compute ssh --zone 'us-central1-a' '"  + name + "'  --project 'spry-notch-318823' -- 'cd ~/curis-project/communication/ && python3 client.py'"
         stream = os.system(cmd)
 
 def set_up_clients():
