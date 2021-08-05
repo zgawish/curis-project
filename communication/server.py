@@ -70,7 +70,7 @@ class InstanceServer:
                 print(str(addr[0]) + ": " + msg)
                 send_msg = self.parse_message(msg)
                 print(send_msg)
-                self.send(conn, send_msg.encode(self.FORMAT))
+                self.send(conn, send_msg)
         conn.close()
 
 
