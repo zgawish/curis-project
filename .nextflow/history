@@ -1,6 +1,0 @@
-2021-08-01 11:47:22	10.9s	fervent_wright	ERR	5124a182e4d66e336e42660cdd77c83c	8072a383-ae14-4ad4-9dc4-6031b113e494	nextflow run server.nf
-2021-08-01 11:49:16	41.4s	reverent_swartz	ERR	fe0a296f19f41485e3ee8fe1b2645b7b	bd591929-50f7-4fa9-b4a3-a48905c46e48	nextflow run server.nf
-2021-08-01 11:51:51	2m 8s	magical_hamilton	ERR	fe0a296f19f41485e3ee8fe1b2645b7b	f8e06335-aaef-45da-a144-99513694ba21	nextflow run server.nf
-2021-08-01 11:56:13	49.9s	nostalgic_fermat	ERR	fe0a296f19f41485e3ee8fe1b2645b7b	5758b832-d8e3-47c7-bf90-e4043f550be9	nextflow run server.nf
-2021-08-01 11:57:36	11.7s	shrivelled_mestorf	ERR	fe0a296f19f41485e3ee8fe1b2645b7b	506201e5-41fb-42ee-a733-c792335f279e	nextflow run server.nf
-2021-08-01 11:58:38	1m 17s	sad_golick	ERR	fe0a296f19f41485e3ee8fe1b2645b7b	6c1316a1-ac23-4970-93cd-d4eb15dc8ded	nextflow run server.nf
