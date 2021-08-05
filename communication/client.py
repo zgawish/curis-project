@@ -4,41 +4,62 @@ import time
 HEADER = 1024
 PORT = 5050
 SERVER = "10.128.0.3" ### IP OF SERVER ###
-ADDR = (SERVER, PORT)
-FORMAT = 'utf-8'
-DISCONNECT_MSG = "!DISCONNECT"
-REQUEST_MSG = "!REQUEST"
+"""
+InstanceClient
+--------------
+Class that sends and recieves responses to a server  
+"""
+class InstanceClient:
+    HEADER = 1024
+    FORMAT = 'utf-8'
+    DISCONNECT_MSG = "!DISCONNECT"
+    REQUEST_MSG = "!REQUEST"
+    COMPLETED_MSG = "!COMPLETED"
 
-start = time.time()
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(ADDR)
-end = time.time()
-print("Time elapsed: " + str(end - start))
+
+    def __init__(self, port, server):
+        self.addr = (server, port)
+        self.connected = False
+        self.client = None
+
+    def connect_client(self):
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client.connect(addr)
+        self.connected = True
+        return connected
 
 
-def send(client, msg):
-    start = time.time()
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
-    client.send(message)
-    r_msg = client.recv(2048).decode(FORMAT)
-    end = time.time()
-    print("Time to Send and Recieve Message: " + str(end - start))
-    return r_msg
+    # private
+    def recieve(self):
+        msg_length = self.client.recv(self.HEADER).decode(self.FORMAT) # recieve size of message then actual string
+        if msg_length: # if theres a msg
+            msg_length = int(msg_length)
+            msg = self.client.recv(msg_length).decode(self.FORMAT)
+            return msg
+        return ""
+    
+    # commands start with a "cmd"
+    def send(self, msg):
+        message = msg.encode(self.FORMAT)
+        msg_length = len(message)
+        send_length = str(msg_length).encode(self.FORMAT)
+        send_length += b' ' * (self.HEADER - len(send_length))
+        self.client.send(send_length)
+        self.client.send(message)
 
-def connect_client():
-    start = time.time()
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect(ADDR)
-    end = time.time()
-    print("Time to Connect: " + str(end - start))
-    return client
 
-client = connect_client()
-r_msg = send(client, "JOB COMPLETED")
-if r_msg == "Message recieved":
-    r_msg = send(client, DISCONNECT_MSG)
-    print(r_msg)    
+    # should be used for sending basic message
+    def send_rcv(self, msg):
+        self.send(msg)
+        r_msg = self.recieve()
+        return r_msg
+
+
+    # disconnect 
+    def disconnect(self):
+        r_msg = self.send_rcv(self.DISCONNECT_MSG)
+        if r_msg == self.DISCONNECT_MSG:
+            self.client.close()
+            self.connected = False
+            return True
+        return False
