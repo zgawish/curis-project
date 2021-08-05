@@ -81,7 +81,6 @@ class InstanceServer:
             conn, addr = self.server.accept()
             thread = threading.Thread(target=self.handle_client, args=(conn, addr))
             thread.start()
-            print("[ACTIVE CONNECTIONS] " + str(threading.activeCount() - 1))
 
 
 def main():
