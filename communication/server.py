@@ -35,7 +35,7 @@ class InstanceServer:
         conn.send(message)
 
 
-    def run_command(self, cmd):
+    def run_command(self, args):
         if len(args) == 1:
             return "Error: Send arguments with cmd"
         else:
@@ -52,7 +52,7 @@ class InstanceServer:
     def parse_message(self, msg):
         args = msg.split()
         if args[0] == 'cmd': # command constant
-            return self.run_command(msg)
+            return self.run_command(args)
         else:
             return "Message recieved"
 
