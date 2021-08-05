@@ -7,12 +7,13 @@ class InstanceServer:
     HEADER = 1024
     PORT = 5060
     SERVER = socket.gethostbyname(socket.gethostname()) # 192.168.86.23
-    ADDR = (SERVER, PORT)
+    ADDR = None
     FORMAT = 'utf-8'
     DISCONNECT_MSG = "!DISCONNECT"
     REQUEST_MSG = "!REQUEST"
 
-    def __init__(self):
+    def __init__(self, port=self.PORT):
+        self.ADDR = (self.SERVER, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(self.ADDR)
 
