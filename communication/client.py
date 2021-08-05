@@ -24,7 +24,7 @@ class InstanceClient:
 
     def connect_client(self):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client.connect(addr)
+        self.client.connect(self.addr)
         self.connected = True
         return connected
 
