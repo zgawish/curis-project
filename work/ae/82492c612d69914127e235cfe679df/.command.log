@@ -1,0 +1,3 @@
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Permission denied (publickey,hostbased).
+ERROR: (gcloud.compute.ssh) [/usr/bin/ssh] exited with return code [255].

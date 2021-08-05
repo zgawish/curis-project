@@ -1,0 +1,8 @@
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+ERROR: gcloud crashed (ProcessLookupError): [Errno 3] No such process
+
+If you would like to report this issue, please run the following command:
+  gcloud feedback
+
+To check gcloud for common problems, please run the following command:
+  gcloud info --run-diagnostics

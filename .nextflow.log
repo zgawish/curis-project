@@ -1,0 +1,51 @@
+Aug-01 11:58:36.374 [main] DEBUG nextflow.cli.Launcher - $> nextflow run server.nf
+Aug-01 11:58:37.355 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.3
+Aug-01 11:58:37.402 [main] INFO  nextflow.cli.CmdRun - Launching `server.nf` [sad_golick] - revision: fe0a296f19
+Aug-01 11:58:38.060 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/home/ziygawish/.nextflow/plugins
+Aug-01 11:58:38.062 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-01 11:58:38.067 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Aug-01 11:58:38.091 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-01 11:58:38.093 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-01 11:58:38.101 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-01 11:58:38.126 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-01 11:58:38.425 [main] DEBUG nextflow.Session - Session uuid: 6c1316a1-ac23-4970-93cd-d4eb15dc8ded
+Aug-01 11:58:38.425 [main] DEBUG nextflow.Session - Run name: sad_golick
+Aug-01 11:58:38.430 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-01 11:58:38.654 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.3 build 5560
+  Created: 21-07-2021 15:09 UTC 
+  System: Linux 4.15.0-1098-gcp
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10
+  Encoding: UTF-8 (UTF-8)
+  Process: 12805@elasticluster-test-instance [10.128.0.3]
+  CPUs: 2 - Mem: 3.8 GB (2.5 GB) - Swap: 0 (0)
+Aug-01 11:58:38.858 [main] DEBUG nextflow.Session - Work-dir: /home/ziygawish/curis-project/work [ext2/ext3]
+Aug-01 11:58:38.858 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ziygawish/curis-project/bin
+Aug-01 11:58:38.908 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-01 11:58:39.123 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-01 11:58:41.313 [main] DEBUG nextflow.Session - Session start invoked
+Aug-01 11:58:45.063 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-01 11:58:45.115 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: sendCommands, setup
+Aug-01 11:58:45.377 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:58:45.377 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:58:45.387 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-01 11:58:45.398 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=3.8 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Aug-01 11:58:46.848 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 11:58:46.852 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 11:58:46.875 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-01 11:58:46.876 [main] DEBUG nextflow.Session - Session await
+Aug-01 11:58:48.336 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:58:48.358 [Task submitter] INFO  nextflow.Session - [a4/db4ef6] Submitted process > sendCommands
+Aug-01 11:58:48.385 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 11:58:48.389 [Task submitter] INFO  nextflow.Session - [cb/185ef9] Submitted process > setup
+Aug-01 11:58:49.921 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: setup; status: COMPLETED; exit: 0; error: -; workDir: /home/ziygawish/curis-project/work/cb/185ef9881f290b7312c8f6aa2cf1de]
+Aug-01 11:59:54.661 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Aug-01 11:59:54.831 [main] DEBUG nextflow.Session - Session await > all process finished
+Aug-01 11:59:54.832 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-01 11:59:54.863 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (1)
+Aug-01 11:59:54.897 [main] DEBUG nextflow.executor.LocalTaskHandler - Unable to kill sendCommands -- command: kill -TERM 12879; exit: 1 
+ bash: line 0: kill: (12879) - No such process
+
+Aug-01 11:59:54.904 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=1; retriesCount=0; abortedCount=0; succeedDuration=1.3s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Aug-01 11:59:55.102 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Aug-01 11:59:55.122 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
