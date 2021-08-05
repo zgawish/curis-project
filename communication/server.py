@@ -5,7 +5,7 @@ import time
 
 class InstanceServer:
     HEADER = 1024
-    PORT = 5050
+    PORT = 5060
     SERVER = socket.gethostbyname(socket.gethostname()) # 192.168.86.23
     ADDR = (SERVER, PORT)
     FORMAT = 'utf-8'
