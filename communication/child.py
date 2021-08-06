@@ -37,7 +37,7 @@ class ChildServer(InstanceServer):
     def send_to_head(self, ip, msg):
         self.client.connect_client()
         r_msg = client.send_rcv(msg)
-        client.disconnect()
+        self.client.disconnect()
         return r_msg
 
 
