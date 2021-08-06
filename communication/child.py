@@ -21,7 +21,7 @@ class ChildServer(InstanceServer):
 
 
     def set_up_head(self):
-        child = InstanceClient(self.HEAD_PORT, self.SERVER)
+        child = InstanceClient(self.HEAD_PORT, "10.128.0.3")
         self.client = child
 
 
