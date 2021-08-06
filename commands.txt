@@ -12,6 +12,7 @@ To test:
 
         server = HeadServer(5070)
         server.start()
+        ------ START CHILD SERVER -----
         print(server.send_to_child("10.128.0.13", "HELLO"))
         print(server.send_to_child("10.128.0.13", "ls"))
         print(server.send_to_child("10.128.0.13", "cmd ls"))
@@ -24,6 +25,7 @@ To test:
     Child:
         from head import HeadServer
 
-            server = HeadServer(5070)
-            server.start()
-            print(server.send_to_head("HELLO"))
+        server = HeadServer(5070)
+        server.start()
+        ------ START HEAD SERVER -----
+        print(server.send_to_head("HELLO"))
