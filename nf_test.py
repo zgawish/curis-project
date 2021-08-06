@@ -1,6 +1,6 @@
 import os
-
-stream = os.popen("./nextflow run client.nf")
+path = "~/curis-project"
+stream = os.popen("{path}./nextflow run {path}client.nf").format(path=path)
 output = stream.read()
 print(str(output))
 
