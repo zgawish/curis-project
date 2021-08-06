@@ -7,7 +7,7 @@ from client import InstanceClient
 
 class HeadServer(InstanceServer):
     children = {} # list() but can be any data structure like dict()
-    PORT = 5060
+    PORT = 5050
 
     def __init__(self, port=PORT):
         self.ADDR = (self.SERVER, port)
