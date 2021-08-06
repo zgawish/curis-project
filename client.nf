@@ -18,10 +18,10 @@ process convertToUpper {
     input:
     file x from letters.flatten()
 
-    output:
-    stdout result
+    // output:
+    // stdout result
 
     """
-    cat $x | tr '[a-z]' '[A-Z]' > sample.txt
+    cat $x | tr '[a-z]' '[A-Z]' > ~/curis-project/sample.txt
     """
 }
