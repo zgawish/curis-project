@@ -24,7 +24,7 @@ class HeadServer(InstanceServer):
             for ip in ips:
                 if count == 1:
                     break
-                child = InstanceClient(5050, ip)
+                child = InstanceClient(5060, ip)
                 self.children[ip] = child
                 count += 1
 
@@ -39,7 +39,9 @@ class HeadServer(InstanceServer):
     def send_to_child(self, ip, msg):
         if ip in self.children:
             client = self.children[ip]
+            client.connect_client()
             r_msg = client.send_rcv(msg)
+            client.disconnect()
             return r_msg
         else:
             raise ValueError('ip is not in children!')
