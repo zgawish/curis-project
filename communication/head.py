@@ -7,7 +7,8 @@ from client import InstanceClient
 
 class HeadServer(InstanceServer):
     children = {} # list() but can be any data structure like dict()
-
+    PORT = 5060
+    
     def __init__(self, port=PORT):
         self.ADDR = (self.SERVER, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
