@@ -1,6 +1,6 @@
-# Set up google client api
+USEFUL
+------
 
-pip install virtualenv
-virtualenv <your-env> # gce_api
-source <your-env>/bin/activate
-<your-env>/bin/pip install google-api-python-client
+To kill server process:
+lsof -i :5060
+kill -9 <PID>
