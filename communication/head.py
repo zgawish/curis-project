@@ -8,7 +8,7 @@ from client import InstanceClient
 class HeadServer(InstanceServer):
     children = {} # list() but can be any data structure like dict()
     PORT = 5060
-    
+
     def __init__(self, port=PORT):
         self.ADDR = (self.SERVER, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,7 +19,7 @@ class HeadServer(InstanceServer):
 
     def set_up_clients(self):
         with open("children.txt", "r") as file:
-            ips = file.read_lines()
+            ips = file.readlines()
             count = 0 # just to read first line for now
             for ip in ips:
                 if count == 1:

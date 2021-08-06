@@ -1,7 +1,6 @@
 import socket
 import time
 
-HEADER = 1024
 PORT = 5050
 SERVER = "10.128.0.3" ### IP OF SERVER ###
 """
