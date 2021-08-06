@@ -12,7 +12,7 @@ class InstanceServer:
     DISCONNECT_MSG = "!DISCONNECT"
     REQUEST_MSG = "!REQUEST"
 
-    def __init__(self, port=self.PORT):
+    def __init__(self, port=PORT):
         self.ADDR = (self.SERVER, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(self.ADDR)
