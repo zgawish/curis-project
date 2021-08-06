@@ -17,6 +17,8 @@ class InstanceClient:
 
 
     def __init__(self, port, server):
+        self.server = server
+        self.port = port
         self.addr = (server, port)
         self.connected = False
         self.client = None
@@ -62,3 +64,12 @@ class InstanceClient:
             self.connected = False
             return True
         return False
+
+
+    def __repr__(self):
+        return "InstanceClient({}, {})".format(self.server, self.port)
+
+
+    def __str__(self):
+        txt = "Client connected to (IP: {}, PORT: {})"
+        return txt.format(self.server, self.port)

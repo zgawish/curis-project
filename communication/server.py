@@ -14,6 +14,7 @@ class InstanceServer:
 
     def __init__(self, port=PORT):
         self.ADDR = (self.SERVER, port)
+        self.port = port
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(self.ADDR)
 
@@ -82,6 +83,15 @@ class InstanceServer:
             conn, addr = self.server.accept()
             thread = threading.Thread(target=self.handle_client, args=(conn, addr))
             thread.start()
+
+
+    def __repr__(self):
+        return "InstanceServer({}, {})".format(self.SERVER, self.port)
+
+
+    def __str__(self):
+        txt = "Server on (IP: {}, PORT: {})"
+        return txt.format(self.SERVER, self.port)
 
 
 def main():
