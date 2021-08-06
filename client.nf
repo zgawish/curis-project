@@ -23,12 +23,7 @@ process convertToUpper {
 
     """
     cat $x | tr '[a-z]' '[A-Z]'
-    sleep 10
     """
 }
 
-process connectBack {
-    """
-    python3 ~/curis-project/communication/client.py
-    """
-}
+result.view { it.trim() }
