@@ -4,3 +4,26 @@ USEFUL
 To kill server process:
 lsof -i :5060
 kill -9 <PID>
+
+
+To test:
+    Head:
+        from head import HeadServer
+
+        server = HeadServer(5070)
+        server.start()
+        print(server.send_to_child("10.128.0.13", "HELLO"))
+        print(server.send_to_child("10.128.0.13", "ls"))
+        print(server.send_to_child("10.128.0.13", "cmd ls"))
+        print(server.send_to_child("10.128.0.13", "cmd python3 ../print_test.py"))
+        print(server.send_to_child("10.128.0.13", "cmd python3 ../nf_test.py"))
+        print(server.send_to_child("10.128.0.13", "cmd python3 .././nextflow run ../client.nf")) # writes into sample.txt
+        print(server.send_to_child("10.128.0.13", "cmd python3 .././nextflow run ../test.nf")) # writes into test.txt
+        print(server.send_to_child("10.128.0.13", "cmd ls")) # to show changes
+
+    Child:
+        from head import HeadServer
+
+            server = HeadServer(5070)
+            server.start()
+            print(server.send_to_head("HELLO"))
