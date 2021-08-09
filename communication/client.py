@@ -55,6 +55,16 @@ class InstanceClient:
         r_msg = self.recieve()
         return r_msg
 
+    
+    # connects if not connected and disconnects after recieving a message
+    def quick_send(self, msg):
+        if not self.connected:
+            self.connect_client()
+        r_msg = self.send_rcv(msg)
+        self.disconnect()
+        return r_msg
+
+
 
     # disconnect 
     def disconnect(self):
