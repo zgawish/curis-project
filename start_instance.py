@@ -26,6 +26,7 @@ def get_ip(name):
 
 def main():
     name = sys.argv[1]
+    start_instance(name)
     print(get_ip(name))
 
 

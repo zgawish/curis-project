@@ -14,14 +14,25 @@ vms = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002
 process startInstances {
     input:
     val vm from vms
-    
+
     output:
-    val ip into bar
+    val ip into ips
 
     script:
     """
-    python3 start_instances.py $numtype
+    python3 ~/Stanford/CURIS/curis-project/start_instance.py $vm
     """
+}
+
+// result.view { it.trim() }
+
+
+process sendMessage {
+    input:
+    val ip from ips
+
+    output:
+    // something
 }
 
 // process that taskes in client or server and either runs head or child using python
