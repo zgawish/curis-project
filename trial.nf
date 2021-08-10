@@ -39,7 +39,7 @@ process sendMessage {
 
     script:
     """
-    python3 send_msg.py $ip
+    python3 ~/curis-project/send_msg.py $ip
     """
 }
 
