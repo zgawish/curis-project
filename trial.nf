@@ -16,7 +16,7 @@ process startInstances {
     val vm from vms
 
     output:
-    val ip into ips
+    stdout ip into ips
 
     script:
     """
