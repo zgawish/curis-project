@@ -20,8 +20,10 @@ process startInstances {
 
     script:
     """
-    python3 ~/Stanford/CURIS/curis-project/start_instance.py $vm
+    python3 ~/curis-project/start_instance.py $vm
     """
+    // local: python3 ~/Stanford/CURIS/curis-project/start_instance.py $vm
+
 }
 
 // result.view { it.trim() }
