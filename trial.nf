@@ -39,7 +39,7 @@ process sendMessage {
 
     script:
     """
-    python3 send_msg $ip
+    python3 send_msg.py $ip
     """
 }
 
