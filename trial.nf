@@ -36,14 +36,10 @@ process sendMessage {
     output:
     // val r_msg into r_msgs
     stdout result
-    """
-    #!/usr/bin/python3
-from communication.client import InstanceClient
 
-client = InstanceClient(5060, "$ip")
-client.connect_client()
-r_msg = client.quick_send("Dear $ip: Hello from 10.128.0.3!")
-print("$ip: " + r_msg)
+    script:
+    """
+    python3 send_msg $ip
     """
 }
 
