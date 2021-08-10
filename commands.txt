@@ -5,6 +5,7 @@ To kill server process:
 lsof -i :5060
 kill -9 <PID>
 
+To find logs of startup scripts: cat /var/log/syslog
 
 To test:
     Head:

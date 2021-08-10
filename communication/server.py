@@ -95,7 +95,8 @@ class InstanceServer:
 
 
 def main():
-    server = InstanceServer()
+    port = sys.argv[1]
+    server = InstanceServer(int(port))
     server.start_server()
 
 if __name__ == "__main__":
