@@ -9,7 +9,7 @@
 */
 
 VMS = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002', 'gridengine-on-gce-compute003')
-
+path = "~/curis-project/"
 // process that start instance from list and outputs client or server
 process startInstances {
     input:
@@ -21,7 +21,7 @@ process startInstances {
 
     script:
     """
-    python3 ~/curis-project/start_instance.py $vm
+    python3 ${path}start_instance.py $vm
     """
     // local: python3 ~/Stanford/CURIS/curis-project/start_instance.py $vm
 
