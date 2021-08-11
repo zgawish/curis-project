@@ -49,7 +49,7 @@ process sendMessage {
 process closeInstances {
     input:
     val msg from msgs
-    val vm from vms
+    val vm from close_vms
 
     output:
     stdout result
