@@ -33,8 +33,8 @@ def main():
     ls = cmd.split(',')
     msg = ls[0]
     name = ls[1]
-    
-    print(stop_instance(name, msg))
+    print(ls)
+    # print(stop_instance(name, msg))
 
 
 if __name__ == "__main__":
