@@ -45,6 +45,12 @@ process sendMessage {
     python3 ${path}send_msg.py $ip
     """
 }
+myLongCmdline = """ blastp \
+                -in $input_query \
+                -out $output_file \
+                -db $blast_database \
+                -html
+                """
 
 process closeInstances {
     input:
@@ -56,7 +62,10 @@ process closeInstances {
 
     script:
     """
-    python3 ${path}stop_instance.py $msg $vm
+    python3 \
+        ${path}stop_instance.py \
+        $msg \
+        $vm
     """
 }
 
