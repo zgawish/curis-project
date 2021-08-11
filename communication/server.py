@@ -57,7 +57,7 @@ class InstanceServer:
         if args[0] == 'cmd': # command constant
             return self.run_command(args)
         else:
-            return "Message recieved"
+            return "recieved"
 
 
     def handle_client(self, conn, addr):
