@@ -20,7 +20,7 @@ def is_ok(msg):
 
 
 def stop_instance(name):
-    if is_ok(msg)
+    if is_ok(msg):
         request = service.instances().stop(project=project, zone=zone, instance=name)
         response = request.execute()
         return response
