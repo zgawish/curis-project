@@ -13,7 +13,7 @@ zone = 'us-central1-a'
 
 
 def is_ok(msg):
-    if msg == "0":
+    if msg == "recieved":
         return True
     else:
         return False
@@ -29,8 +29,10 @@ def stop_instance(name, msg):
 
 
 def main():
-    msg = sys.argv[1]
-    name = sys.argv[2]
+    cmd = sys.argv[1]
+    ls = cmd.split(',')
+    msg = ls[0]
+    name = ls[1]
     
     print(stop_instance(name, msg))
 
