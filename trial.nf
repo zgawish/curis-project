@@ -56,7 +56,7 @@ process closeInstances {
 
     script:
     """
-    python3 ~/curis-project/stop_instance.py '$msg' \ 
+    python3 ~/curis-project/stop_instance.py '$msg'' \ 
     '$vm'
     """
 }
