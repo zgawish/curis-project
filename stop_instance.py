@@ -23,7 +23,7 @@ def stop_instance(name, msg):
     if is_ok(msg):
         request = service.instances().stop(project=project, zone=zone, instance=name)
         response = request.execute()
-        return response
+        return "{} is stopped".format(name)
     else:
         return None
 
