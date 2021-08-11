@@ -13,7 +13,7 @@ zone = 'us-central1-a'
 
 
 def is_ok(msg):
-    if msg == "recieved":
+    if msg == "0":
         return True
     else:
         return False
