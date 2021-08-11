@@ -8,15 +8,16 @@
  * 6) Once all the child nodes are terminated, the stage completes
 */
 
-vms = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002', 'gridengine-on-gce-compute003')
+VMS = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002', 'gridengine-on-gce-compute003')
 
 // process that start instance from list and outputs client or server
 process startInstances {
     input:
-    val vm from vms
+    val vm from VMS
 
     output:
     stdout ip into ips
+    val vm into vms
 
     script:
     """
@@ -32,14 +33,30 @@ process startInstances {
 process sendMessage {
     input:
     val ip from ips
+    val vm from vms
 
     output:
     // val r_msg into r_msgs
-    stdout result
+    stdout msg into msgs
+    val vm into close_vms 
 
     script:
     """
     python3 ~/curis-project/send_msg.py $ip
+    """
+}
+
+process closeInstances {
+    input:
+    val msg from msgs
+    val vm from vms
+
+    output:
+    stdout result
+
+    script:
+    """
+    python3 ~/curis-project/stop_instance.py $msg $vm
     """
 }
 
