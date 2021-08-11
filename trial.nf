@@ -56,8 +56,6 @@ process closeInstances {
 
     script:
     """
-    #!/bin/bash
-
     python3 ${path}stop_instance.py $msg $vm
     """
 }
