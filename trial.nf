@@ -42,7 +42,7 @@ process sendMessage {
 
     script:
     """
-    python3 ~/curis-project/send_msg.py $ip
+    python3 ${path}send_msg.py $ip
     """
 }
 
@@ -58,9 +58,7 @@ process closeInstances {
     """
     #!/bin/bash
 
-    python3 ~/curis-project/stop_instance.py $msg \
-        $vm
-    /
+    python3 ${path}stop_instance.py $msg $vm
     """
 }
 
