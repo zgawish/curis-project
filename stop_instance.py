@@ -19,7 +19,7 @@ def is_ok(msg):
         return False
 
 
-def stop_instance(name):
+def stop_instance(name, msg):
     if is_ok(msg):
         request = service.instances().stop(project=project, zone=zone, instance=name)
         response = request.execute()
@@ -31,7 +31,7 @@ def stop_instance(name):
 def main():
     msg = sys.argv[1]
     name = sys.argv[2]
-    stop_instance(name)
+    stop_instance(name, msg)
 
 
 if __name__ == "__main__":
