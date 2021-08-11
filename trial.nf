@@ -46,7 +46,6 @@ process sendMessage {
     """
 }
 
-
 process closeInstances {
     input:
     val msg from msgs
@@ -57,10 +56,7 @@ process closeInstances {
 
     script:
     """
-    python3 \
-        ${path}stop_instance.py \
-        $msg \
-        $vm
+    python3 ${path}stop_instance.py "$msg, $vm"
     """
 }
 
