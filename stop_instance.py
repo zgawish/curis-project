@@ -32,7 +32,7 @@ def main():
     cmd = sys.argv[1]
     ls = cmd.split(',')
     msg = ls[0].strip()
-    name = ls[1]
+    name = ls[1].strip()
     print(stop_instance(name, msg))
 
 
