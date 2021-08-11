@@ -45,12 +45,7 @@ process sendMessage {
     python3 ${path}send_msg.py $ip
     """
 }
-myLongCmdline = """ blastp \
-                -in $input_query \
-                -out $output_file \
-                -db $blast_database \
-                -html
-                """
+
 
 process closeInstances {
     input:
