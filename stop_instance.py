@@ -30,11 +30,10 @@ def stop_instance(name, msg):
 
 def main():
     cmd = sys.argv[1]
-    ls = cmd.split(',\n')
-    # msg = ls[0]
-    # name = ls[1]
-    print(ls)
-    # print(stop_instance(name, msg))
+    ls = cmd.split(',')
+    msg = ls[0].strip()
+    name = ls[1]
+    print(stop_instance(name, msg))
 
 
 if __name__ == "__main__":
