@@ -29,9 +29,11 @@ def stop_instance(name, msg):
 
 
 def main():
-    msg = sys.argv[1]
-    name = sys.argv[2]
-    print(stop_instance(name, msg))
+    print(len(sys.argv))
+    # msg = sys.argv[1]
+    # name = sys.argv[2]
+    
+    # print(stop_instance(name, msg))
 
 
 if __name__ == "__main__":
