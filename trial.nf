@@ -61,14 +61,3 @@ process closeInstances {
 }
 
 result.view { it.trim() }
-
-
-
-
-
-
-// process that taskes in client or server and either runs head or child using python
-
-// return code and end instance
-
-// Note:pickle object to save status?
