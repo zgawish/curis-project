@@ -53,7 +53,8 @@ class InstanceServer:
             t = time.localtime()
             current_time = time.strftime("%H:%M:%S", t)
             os.system("echo '{}: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, command, str(output)))
-            return str(output)
+            # return str(output)
+            return "recieved"
 
 
     def parse_message(self, msg):
