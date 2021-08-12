@@ -14,6 +14,7 @@ class ChildServer(InstanceServer):
     def __init__(self, port=PORT, head_server="10.128.0.3"):
         self.ADDR = (self.SERVER, port)
         self.port = port
+        self.head_server = head_server
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(self.ADDR)
         self.set_up_head()
@@ -21,7 +22,7 @@ class ChildServer(InstanceServer):
 
 
     def set_up_head(self):
-        child = InstanceClient(self.HEAD_PORT, head_server)
+        child = InstanceClient(self.HEAD_PORT, self.head_server)
         self.client = child
 
 
