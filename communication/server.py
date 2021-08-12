@@ -49,6 +49,10 @@ class InstanceServer:
             command += args[-1]
             stream = os.popen(command)
             output = stream.read()
+            from_who = str(addr[0]) + ": "
+            t = time.localtime()
+            current_time = time.strftime("%H:%M:%S", t)
+            os.system("echo '{}: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, command, str(output)))
             return str(output)
 
 
