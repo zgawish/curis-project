@@ -57,10 +57,10 @@ class InstanceServer:
             return "recieved"
 
 
-    def parse_message(self, msg):
+    def parse_message(self, msg, addr):
         args = msg.split()
         if args[0] == 'cmd': # command constant
-            return self.run_command(args)
+            return self.run_command(args, addr)
         else:
             return "recieved"
 
