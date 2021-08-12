@@ -38,7 +38,7 @@ class InstanceServer:
         conn.send(message)
 
 
-    def run_command(self, args):
+    def run_command(self, args, addr):
         if len(args) == 1:
             return "Error: Send arguments with cmd"
         else:
@@ -49,7 +49,7 @@ class InstanceServer:
             command += args[-1]
             stream = os.popen(command)
             output = stream.read()
-            from_who = str(self.ADDR[0]) + ": "
+            from_who = str(addr[0]) + ": "
             t = time.localtime()
             current_time = time.strftime("%H:%M:%S", t)
             os.system("echo '{}: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, command, str(output)))
@@ -80,7 +80,7 @@ class InstanceServer:
                 t = time.localtime()
                 current_time = time.strftime("%H:%M:%S", t)
                 os.system("echo '{}: {}' >> /home/ziygawish/curis-project/msg".format(current_time, from_who))
-                send_msg = self.parse_message(msg)
+                send_msg = self.parse_message(msg, addr)
                 print(send_msg)
                 self.send(conn, send_msg)
         conn.close()
