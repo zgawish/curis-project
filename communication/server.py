@@ -29,6 +29,10 @@ class InstanceServer:
         return ""
 
 
+    def send_status(self, conn, status):
+        self.send(conn, status)
+
+
     def send(self, conn, msg):
         message = msg.encode(self.FORMAT)
         msg_length = len(message)

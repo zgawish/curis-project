@@ -11,9 +11,10 @@ class HeadServer(InstanceServer):
     CHILDREN_PORT = 5060
 
 
-    def __init__(self, port=PORT):
+    def __init__(self, port=PORT, children_port=CHILDREN_PORT):
         self.ADDR = (self.SERVER, port)
         self.port = port
+        self.children_port = children_port
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(self.ADDR)
         self.set_up_clients()
@@ -27,7 +28,7 @@ class HeadServer(InstanceServer):
             for ip in ips:
                 if count == 1:
                     break
-                child = InstanceClient(self.CHILDREN_PORT, ip)
+                child = InstanceClient(self.children_port, ip)
                 self.children[ip] = child
                 count += 1
 
@@ -62,4 +63,4 @@ class HeadServer(InstanceServer):
 
     def __str__(self):
         txt = "Server on (IP: {}, PORT: {}). Clients connected to PORT: {}"
-        return txt.format(self.SERVER, self.port, self.CHILDREN_PORT)
+        return txt.format(self.SERVER, self.port, self.children_port)
