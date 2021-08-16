@@ -30,10 +30,6 @@ class InstanceServer:
         return ""
 
 
-    def send_status(self, conn, status):
-        self.send(conn, status)
-
-
     def send(self, conn, msg):
         message = msg.encode(self.FORMAT)
         msg_length = len(message)
@@ -59,7 +55,7 @@ class InstanceServer:
             current_time = time.strftime("%H:%M:%S", t)
             os.system("echo '{}: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, command, str(output)))
             # return str(output)
-            return "received"
+            return "0"
 
 
     def parse_message(self, msg, addr):
@@ -67,7 +63,7 @@ class InstanceServer:
         if args[0] == 'cmd': # command constant
             return self.run_command(args, addr)
         else:
-            return "received"
+            return "0"
 
 
     def handle_client(self, conn, addr):
