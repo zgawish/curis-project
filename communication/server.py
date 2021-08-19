@@ -1,6 +1,7 @@
 import socket
 import threading
 import os
+import subprocess
 import time
 import sys
 
@@ -30,10 +31,6 @@ class InstanceServer:
         return ""
 
 
-    def send_status(self, conn, status):
-        self.send(conn, status)
-
-
     def send(self, conn, msg):
         message = msg.encode(self.FORMAT)
         msg_length = len(message)
@@ -42,32 +39,53 @@ class InstanceServer:
         conn.send(send_length)
         conn.send(message)
 
-
-    def run_command(self, args, addr):
+    # def run_command(self, args, addr, flag):
+    def run_command(self, args, command, addr, flag):
         if len(args) == 1:
-            return "Error: Send arguments with cmd"
+            return "Error: Send arguments with cmd\n-1"
+        
+
+        try:
+            # stdout = subprocess.PIPE lets you redirect the output
+            res = subprocess.Popen(command, stdout=subprocess.PIPE)
+        except OSError:
+            return "-1"
+        
+        res.wait()
+        status = res.returncode
+        result = res.stdout.read().decode()
+
+        from_who = str(addr[0])
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+
+        output = result + str(status)
+        
+        os.system("echo '{}: {} \n args: {} status: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, from_who, args, str(status), output))
+        print(flag)
+        if flag == '-c':
+            return str(status)
+        elif flag == '-o':
+            return result
         else:
-            command = ""
-            for arg in args[1:len(args) - 1]:
-                command += arg
-                command += " "
-            command += args[-1]
-            stream = os.popen(command)
-            output = stream.read()
-            from_who = str(addr[0]) + ": "
-            t = time.localtime()
-            current_time = time.strftime("%H:%M:%S", t)
-            os.system("echo '{}: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, command, str(output)))
-            # return str(output)
-            return "received"
+            return output
 
 
     def parse_message(self, msg, addr):
         args = msg.split()
-        if args[0] == 'cmd': # command constant
-            return self.run_command(args, addr)
+        if args[0] == 'cmd' and len(args) > 1: # command constant
+            if args[1] == "-c" or args[1] == "-o" or args[1] == "-co":
+                command = []
+                for arg in args[2:len(args)]:
+                    command.append(arg)
+                return self.run_command(args, command, addr, args[1])
+
+            command = []
+            for arg in args[1:len(args)]:
+                command.append(arg)
+            return self.run_command(args, command, addr, '-co')
         else:
-            return "received"
+            return "0"
 
 
     def handle_client(self, conn, addr):
