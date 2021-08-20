@@ -1,4 +1,5 @@
 // error retry file
+path = "~/curis-project/"
 
 process retry { 
     errorStrategy { task.exitStatus == 0 ? 'terminate' : 'retry' }
@@ -8,8 +9,10 @@ process retry {
 
     script:
     """
-    python3 ~/Stanford/CURIS/curis-project/retry_test.py $task.attempt
+    python3 ${path}retry_test.py $task.attempt
     """
 }
+
+// local: ~/Stanford/CURIS/
 
 result.view { it.trim() }
