@@ -10,6 +10,10 @@
 
 VMS = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002', 'gridengine-on-gce-compute003')
 path = "~/curis-project/"
+// path = "~/Stanford/CURIS/curis-project/"
+cmd = "curl ifconfig"
+// cmd = "ls"
+// cmd = "python3 /home/ziygawish/curis-project/random_num.py"
 // process that start instance from list and outputs client or server
 process startInstances {
     input:
@@ -23,26 +27,41 @@ process startInstances {
     """
     python3 ${path}start_instance.py $vm
     """
-    // local: python3 ~/Stanford/CURIS/curis-project/start_instance.py $vm
-
 }
-
-// result.view { it.trim() }
 
 
 process sendMessage {
+    maxRetries = { task.exitStatus == 0 ? 0 : 3 }
+
     input:
     val ip from ips
     val vm from vms
 
     output:
-    // val r_msg into r_msgs
-    stdout msg into msgs
-    val vm into close_vms 
+    stdout r_msg into r_msgs
+    val vm into next_vm
+    val ip into ips_cmds
 
     script:
     """
-    python3 ${path}send_msg.py $ip
+    python3 ${path}send_msg.py $ip hello!
+    """
+}
+
+process sendCommand {
+    maxRetries = { task.exitStatus == 0 ? 0 : 3 }
+
+    input:
+    val ip from ips_cmds
+    val vm from next_vm
+
+    output:
+    val vm into close_vms
+    stdout msg into msgs
+    
+    script:
+    """
+    python3 ${path}send_msg.py $ip '${cmd}'
     """
 }
 
@@ -60,4 +79,8 @@ process closeInstances {
     """
 }
 
+
+
+r_msgs.view { "Status of sending msg: $it"}
+msgs.view { "Return value of sending cmd"}
 result.view { it.trim() }

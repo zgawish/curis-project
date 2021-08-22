@@ -42,14 +42,14 @@ class InstanceServer:
     # def run_command(self, args, addr, flag):
     def run_command(self, args, command, addr, flag):
         if len(args) == 1:
-            return "Error: Send arguments with cmd\n-1"
+            return "Error: Send arguments with cmd\n1"
         
 
         try:
             # stdout = subprocess.PIPE lets you redirect the output
             res = subprocess.Popen(command, stdout=subprocess.PIPE)
         except OSError:
-            return "-1"
+            return "1"
         
         res.wait()
         status = res.returncode
@@ -66,7 +66,7 @@ class InstanceServer:
         if flag == '-c':
             return str(status)
         elif flag == '-o':
-            return result
+            return result[:-1] # remove trailing \n
         else:
             return output
 
