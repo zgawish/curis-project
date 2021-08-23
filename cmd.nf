@@ -74,8 +74,8 @@ process sendCommand {
     """
 }
 
-// msgs.view { "Return value of sending cmd"}
-
+msgs.view { "Return value of sending cmd"}
+/*
 process closeInstances {
     input:
     val msg from msgs
@@ -89,5 +89,5 @@ process closeInstances {
     python3 ${path}stop_instance.py "$msg, $vm"
     """
 }
-
+*/
 result.view { it.trim() }
