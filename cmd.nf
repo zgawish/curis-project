@@ -74,7 +74,7 @@ process sendCommand {
     """
 }
 
-msgs.view { "Return value of sending cmd"}
+msgs.view { "Return value of sending cmd $it"}
 /*
 process closeInstances {
     input:
