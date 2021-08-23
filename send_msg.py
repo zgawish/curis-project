@@ -20,8 +20,8 @@ def main():
     # msg = sys.argv[2] # 2
     r_msg = send_msg(ip, msg) # 2
     print(r_msg) # 1
-    # results = r_msg.split('\n')
-    # exit(int(results[-1])) # exits with status
+    results = r_msg.split('\n')
+    exit(int(results[-1])) # exits with status
     
 
 
