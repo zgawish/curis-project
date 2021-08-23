@@ -30,13 +30,13 @@ def stop_instance(name, msg):
 
 def main():
     cmd = sys.argv[1]
-    # ls = cmd.split(',')
-    # msg = ls[0].strip()
-    # name = ls[1].strip()
-    msg = sys.argv[1]
+    ls = cmd.split(',')
+    msg = ls[0].strip()
+    name = ls[1].strip()
+    # msg = sys.argv[1]
     result = msg.split('\n')
     code = result[-1]
-    name = sys.argv[2]
+    # name = sys.argv[2]
     print(stop_instance(name, code))
 
 
