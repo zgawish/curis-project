@@ -4,8 +4,8 @@ from communication.client import InstanceClient
 def send_msg(ip, msg): # 2
     client = InstanceClient(5060, ip)
     client.connect_client()
-    # r_msg = client.quick_send("Dear {}: Hello from 10.128.0.3!".format(ip)) # 1
-    r_msg = client.quick_send(msg) # 2
+    r_msg = client.quick_send("Dear {}: Hello from 10.128.0.3!".format(ip)) # 1
+    # r_msg = client.quick_send(msg) # 2
     return r_msg
 
 def main():

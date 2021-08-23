@@ -46,7 +46,9 @@ process sendMessage {
 
     script:
     //     python3 ${path}send_msg.py $ip hello!
-    send_msg =  " python3 ${path}send_msg.py $ip hello! "
+    // send_msg =  " python3 ${path}send_msg.py $ip hello! "
+    send_msg =  " python3 ${path}send_msg.py $ip"
+
     """
     ${send_msg}
     """
