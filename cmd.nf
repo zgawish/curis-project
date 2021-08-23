@@ -11,7 +11,8 @@
 VMS = Channel.from('gridengine-on-gce-compute001', 'gridengine-on-gce-compute002', 'gridengine-on-gce-compute003')
 path = "~/curis-project/"
 // path = "~/Stanford/CURIS/curis-project/"
-cmd = "cmd curl ifconfig.me"
+// cmd = "cmd curl ifconfig.me"
+cmd = "cmd python3 ${path}random_num.py"
 // cmd = "cmd ls"
 // cmd = "cmd python3 /home/ziygawish/curis-project/random_num.py"
 // process that start instance from list and outputs client or server
