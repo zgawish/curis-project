@@ -16,10 +16,7 @@ cmd = "curl ifconfig"
 // cmd = "python3 /home/ziygawish/curis-project/random_num.py"
 // process that start instance from list and outputs client or server
 
-send_msg =  """ python3 \
-                ${path}send_msg.py \
-                %s hello!
-            """
+
 process startInstances {
     input:
     val vm from VMS
@@ -49,9 +46,12 @@ process sendMessage {
 
     script:
     //     python3 ${path}send_msg.py $ip hello!
-
+    send_msg =  """ python3 \
+                ${path}send_msg.py \
+                $ip hello!
+            """
     """
-    ${send_msg.format(ip)}
+    ${send_msg}
     """
 }
 
