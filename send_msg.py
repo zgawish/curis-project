@@ -21,7 +21,6 @@ def main():
     r_msg = send_msg(ip, msg) # 2
     print(r_msg) # 1
     results = r_msg.split('\n')
-    print(results[-1])
     exit(int(results[-1])) # exits with status
     
 
