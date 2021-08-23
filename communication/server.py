@@ -102,7 +102,7 @@ class InstanceServer:
                 print(from_who)
                 t = time.localtime()
                 current_time = time.strftime("%H:%M:%S", t)
-                os.system("echo '{}: {}' >> /home/ziygawish/curis-project/msg".format(current_time, from_who))
+                os.system("sudo echo '{}: {}' >> /home/ziygawish/curis-project/msg".format(current_time, from_who))
                 send_msg = self.parse_message(msg, addr)
                 print(send_msg)
                 self.send(conn, send_msg)
