@@ -70,7 +70,7 @@ process sendCommand {
     
     script:
     """
-    python3 ${path}send_msg.py "$ip, '${cmd}'"
+    python3 ${path}send_msg.py "$ip, ${cmd}"
     """
 }
 
