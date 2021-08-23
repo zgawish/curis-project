@@ -18,7 +18,7 @@ cmd = "curl ifconfig"
 
 send_msg =  """ python3 \
                 ${path}send_msg.py \
-                $ip hello!
+                %s hello!
             """
 process startInstances {
     input:
@@ -51,7 +51,7 @@ process sendMessage {
     //     python3 ${path}send_msg.py $ip hello!
 
     """
-    ${send_msg}
+    ${send_msg.format(ip)}
     """
 }
 
