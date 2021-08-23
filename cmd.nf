@@ -33,7 +33,8 @@ process startInstances {
 
 
 process sendMessage {
-    maxRetries = { task.exitStatus == 0 ? 0 : 3 }
+    errorStrategy 'retry'
+    // maxRetries = { task.exitStatus == 0 ? 0 : 3 }
 
     input:
     val ip from ips
@@ -55,7 +56,8 @@ process sendMessage {
 // r_msgs.view { "Status of sending msg: $it"}
 
 process sendCommand {
-    maxRetries = { task.exitStatus == 0 ? 0 : 3 }
+    errorStrategy 'retry'
+    // maxRetries = { task.exitStatus == 0 ? 0 : 3 }
 
     input:
     val ip from ips_cmds
