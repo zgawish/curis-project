@@ -89,5 +89,6 @@ process closeInstances {
     python3 ${path}stop_instance.py "$msg, $vm"
     """
 }
-*/
+
 result.view { it.trim() }
+*/
