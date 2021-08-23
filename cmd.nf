@@ -48,7 +48,7 @@ process sendMessage {
     //     python3 ${path}send_msg.py $ip hello!
     // send_msg =  " python3 ${path}send_msg.py $ip hello! "
     """
-    python3 ${path}send_msg.py '$ip hello!'
+    python3 ${path}send_msg.py "$ip, hello!"
     """
 }
 
@@ -67,7 +67,7 @@ process sendCommand {
     
     script:
     """
-    python3 ${path}send_msg.py "$ip '${cmd}'"
+    python3 ${path}send_msg.py "$ip, '${cmd}'"
     """
 }
 
@@ -83,7 +83,7 @@ process closeInstances {
 
     script:
     """
-    python3 ${path}stop_instance.py "$msg $vm"
+    python3 ${path}stop_instance.py "$msg, $vm"
     """
 }
 
