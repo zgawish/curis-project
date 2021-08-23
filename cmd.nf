@@ -48,6 +48,8 @@ process sendMessage {
     """
 }
 
+r_msgs.view { "Status of sending msg: $it"}
+
 process sendCommand {
     maxRetries = { task.exitStatus == 0 ? 0 : 3 }
 
@@ -65,6 +67,8 @@ process sendCommand {
     """
 }
 
+msgs.view { "Return value of sending cmd"}
+
 process closeInstances {
     input:
     val msg from msgs
@@ -79,8 +83,4 @@ process closeInstances {
     """
 }
 
-
-
-r_msgs.view { "Status of sending msg: $it"}
-msgs.view { "Return value of sending cmd"}
 result.view { it.trim() }
