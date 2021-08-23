@@ -61,7 +61,7 @@ class InstanceServer:
 
         output = result + str(status)
         
-        os.system("echo '{}: {}\n args: {} status: {} \n {}' >> /home/ziygawish/curis-project/cmds".format(current_time, from_who, args, str(status), output))
+        os.system("echo '{}: {}\nargs: {} status: {}\n{}' >> /home/ziygawish/curis-project/cmds".format(current_time, from_who, args, str(status), output))
         print(flag)
         if flag == '-c':
             return str(status)
