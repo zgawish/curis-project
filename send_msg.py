@@ -14,8 +14,8 @@ def main():
     ip = ls[0].strip()
     msg = ls[1].strip()
     # msg = sys.argv[1]
-    result = msg.split('\n')
-    code = result[-1]
+    # result = msg.split('\n')
+    # code = result[-1]
     # ip = sys.argv[1]
     # msg = sys.argv[2] # 2
     r_msg = send_msg(ip, msg) # 2
