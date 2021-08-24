@@ -74,8 +74,8 @@ process sendCommand {
     """
 }
 
-msgs.view { "Return value of sending cmd $it"}
-/*
+// msgs.view { "Return value of sending cmd $it"}
+
 process closeInstances {
     input:
     val msg from msgs
@@ -91,4 +91,3 @@ process closeInstances {
 }
 
 result.view { it.trim() }
-*/
